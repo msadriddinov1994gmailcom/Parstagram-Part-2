@@ -14,9 +14,8 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class PostAdapter(val context: Context, public val posts: List<Post>) : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
+class PostAdapter(val context: Context, private val posts: List<Post>) : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
-    lateinit var postList: MutableList<Post>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostAdapter.ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.layout_post_item, parent, false)
@@ -26,7 +25,6 @@ class PostAdapter(val context: Context, public val posts: List<Post>) : Recycler
     override fun onBindViewHolder(holder: PostAdapter.ViewHolder, position: Int) {
         val post = posts.get(position)
         holder.bind(post)
-        postList.addAll(posts)
     }
 
     override fun getItemCount(): Int {
@@ -56,7 +54,6 @@ class PostAdapter(val context: Context, public val posts: List<Post>) : Recycler
 
         override fun onClick(view: View?) {
             val intent = Intent(itemView.context, DetailedActivity::class.java)
-            intent.putExtra("ho", Post())
             itemView.context.startActivity(intent)
         }
     }
