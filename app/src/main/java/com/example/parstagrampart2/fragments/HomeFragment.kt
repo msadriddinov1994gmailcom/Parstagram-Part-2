@@ -56,10 +56,10 @@ open class HomeFragment : Fragment() {
                 if (e != null) {Log.e(TAG, "Error fetching posts.")}
                 else {
                     if (posts != null) {
+                        allPosts.addAll(posts)
+                        adapter.notifyDataSetChanged()
                         for (post in posts) {
                             Log.e(TAG, "Posts: ${post.getDescription()}")
-                            allPosts.addAll(posts)
-                            adapter.notifyDataSetChanged()
                         }
                     }
                 }

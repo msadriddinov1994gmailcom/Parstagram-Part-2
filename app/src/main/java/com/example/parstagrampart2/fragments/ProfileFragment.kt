@@ -61,6 +61,7 @@ class ProfileFragment : Fragment() {
                             Log.e(TAG, "Posts: ${post.getDescription()}")
                             allPosts.addAll(posts)
                             adapter.notifyDataSetChanged()
+
                         }
                     }
                 }
